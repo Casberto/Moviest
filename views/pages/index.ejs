@@ -1,0 +1,37 @@
+<%- include("../partials/header") %>
+<!-- tabela com filmes -->
+<div>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Poster</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Sinopse</th>
+        <th scope="col">Diretor</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% movies.forEach(({dataValues: {poster, director, name, description, rate}}) => { %>
+      <tr>
+        <!-- poster -->
+        <td><img src=<%= poster %> class="poster"></td>
+        <!-- titulo -->
+        <td><%= name %></td>
+        <!-- sinopse -->
+        <td><%= description %></td>
+        <!-- diretor -->
+        <td><%= director %></td>
+        <!-- nota -->
+        <td><%= rate %></td>
+        <td>
+          <td><button>alterar</button></td>
+          <td><button>excluir</button></td>
+        </td>
+      </tr> 
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("../partials/footer") %>
