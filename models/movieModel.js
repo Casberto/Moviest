@@ -2,19 +2,6 @@ const { DataTypes } = require("sequelize");
 const connection = require('../connection/connection');
 
 
-const movieGenre ={
-  comedy: 'comedy',
-  horror: 'horror',
-  action: 'action',
-  drama: 'drama',
-  romance: 'romance',
-  suspense: 'suspense',
-  fantasy: 'fantasy',
-  thriller: 'thriller',
-  mystery: 'mystery',
-  crime: 'crime',
-}
-
 const movie = connection.define("movies", {
   id: {
     type: DataTypes.INTEGER,
@@ -52,7 +39,7 @@ const movie = connection.define("movies", {
     type: DataTypes.DATE,
   },
   rate:{
-    type: DataTypes.FLOAT,
+    type: DataTypes.DOUBLE,
     allowNull: false,
   }
 });
