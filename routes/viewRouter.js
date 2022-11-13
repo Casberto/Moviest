@@ -3,12 +3,12 @@ const MovieController = require("../controllers/movieController");
 const MovieModel = require("../models/movieModel");
 
 router.get("/", async (req, res, next) => {
-    let movies = {};
+  let movies = {};
   // 1) Obter dados
-  try{
-    movies =  (await MovieModel.findAll()).splice(0, 10);
-  }catch(err){
-    console.log('FUDEU' + err);
+  try {
+    movies = (await MovieModel.findAll()).splice(0, 10);
+  } catch (err) {
+    console.log("FUDEU" + err);
   }
   // 2) Passar dados
 
@@ -18,7 +18,11 @@ router.get("/", async (req, res, next) => {
 
 router.get("/registerMovie", (req, res) => {
   res.render("registerMovie");
+  return console.log("passou");
 });
 
+router.get("/", (req, res) => {
+  res.render("index");
+});
 
 module.exports = router;

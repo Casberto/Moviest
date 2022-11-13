@@ -1,3 +1,4 @@
+const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets');
 const MovieModel = require('../models/movieModel');
 
 exports.getAllMovie = async (req, res) => {

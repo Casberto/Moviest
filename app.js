@@ -6,8 +6,6 @@ const path = require("path"); // Package que lida com caminhos de diretórios
 app.set("views", "./views/pages");
 //View engine setup
 app.set("view engine", "ejs"); //setar que a engine será o ejs
-//app.set(expressLayouts); //setar que vamos utilizar o express-ejs-layouts na aplicação
-//app.set(bodyParser.urlencoded()); //parsear o corpo das requisições
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -15,19 +13,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Models
 const movieModel = require("./models/movieModel"); //modelo que permite interagir com a tabela movie
-const userModel = require("./models/userModel");
-const Connection = require('./connection/connection');
+const Connection = require("./connection/connection");
 Connection.sync();
 
 //Routes
 const movieRouter = require("./routes/movieRouter");
-const userRouter = require("./routes/userRouter");
 const viewRoute = require("./routes/viewRouter");
+const { createMovie } = require("./controllers/movieController");
 
-
-app.use("/api/movie", movieRouter);
-app.use("/api/user", userRouter);
+app.use("/registerMovie", movieRouter);
 app.use("/", viewRoute);
-
+app.use("/index", viewRoute);
 
 module.exports = app;
