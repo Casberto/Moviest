@@ -1,19 +1,20 @@
 const router = require("express").Router();
-const MovieController = require('../controllers/movieController');
+const MovieController = require("../controllers/movieController");
 
 //retorna todos os filmes
-router.get('/', MovieController.getAllMovie);
+router.get("/", MovieController.getAllMovie);
 
 //retorna um filme
-router.get('/:index', MovieController.getOneMovie);
+router.get("/:index", MovieController.getOneMovie);
 
 //criar um novo filme
-router.post('/', MovieController.createMovie);
+
+router.post("/registerMovie", MovieController.createMovie);
 
 //atualizar um filme
-router.put('/:index', MovieController.updateMovie);
+router.put("/:index", MovieController.updateMovie);
 
 //excluir um filme
-router.delete('/:index', MovieController.deleteMovie);
+router.delete("/", MovieController.deleteMovie);
 
 module.exports = router;

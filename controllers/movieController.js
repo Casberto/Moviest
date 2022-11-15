@@ -1,5 +1,5 @@
-const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets');
-const MovieModel = require('../models/movieModel');
+const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
+const MovieModel = require("../models/movieModel");
 
 exports.getAllMovie = async (req, res) => {
   const movie = await MovieModel.findAll();
@@ -9,18 +9,30 @@ exports.getAllMovie = async (req, res) => {
 exports.getOneMovie = async (req, res) => {
   const { index } = req.params;
   const movie = await MovieModel.findByPk(index);
-  if(movie){
+  if (movie) {
     return res.status(200).json(movie);
-  }else{
+  } else {
     return res.status(404).json();
   }
 };
 
 exports.createMovie = async (req, res) => {
-  const { name, description, director, actor, rate, year, month } = req.body;
-  const movie = await MovieModel.create({name, description, director, actor, rate, year, month});
+  const { name, description, director, actor, rate, year, month, genre } =
+    req.body;
+  const movie = await MovieModel.create({
+    name,
+    description,
+    director,
+    actor,
+    rate,
+    year,
+    month,
+    genre,
+  });
 
-  return res.status(201).json(movie);
+  // return res.status(201).json(movie);
+  console.log("fudeu");
+  return res.render("success");
 };
 
 exports.updateMovie = async (req, res) => {

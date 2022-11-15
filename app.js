@@ -21,8 +21,9 @@ const movieRouter = require("./routes/movieRouter");
 const viewRoute = require("./routes/viewRouter");
 const { createMovie } = require("./controllers/movieController");
 
-app.use("/registerMovie", movieRouter);
+app.use("/movie", movieRouter);
 app.use("/", viewRoute);
-app.use("/index", viewRoute);
+
+
 
 module.exports = app;

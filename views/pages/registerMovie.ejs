@@ -1,7 +1,10 @@
 <%- include("../partials/header") %>
 
 <div>
-  <form action="" method="post">
+  <h1 class="titulo">CADASTRO DE FILMES</h1>
+</div>
+<div class="cadastro">
+  <form action="/movie/registerMovie" method="post">
     <div class="form-group">
       <input name="_method" type="hidden" value="put">
       <label for="titulo">Titulo</label>
@@ -59,6 +62,17 @@
       />
     </div>
     <div class="form-group">
+      <label for="rate">Genero</label>
+      <input
+        type="text"
+        class="form-control"
+        id="genre"
+        name="genre"
+        aria-describedby="emailHelp"
+        placeholder="Ação"
+      />
+    </div>
+    <div class="form-group">
       <label for="launch">Lançamento</label>
       <input
         type="date"
@@ -83,7 +97,7 @@
     </div>
 
   
-    <button type="submit" class="btn btn-primary" id="send" value="Enviar">Enviar</button>
+    <button type="submit" class="btn btn-primary enviar" id="send" value="Enviar">Enviar</button>
   </form>
 </div>
 
