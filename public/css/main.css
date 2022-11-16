@@ -36,18 +36,15 @@ form label {
 }
 
 .cadastro {
-  border-radius: 5px;
-  border-style: solid;
-  border-color: darkgray;
-  height: 763px;
-  width: 505px;
+  height: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 10px;
 }
 
 .titulo {
   border-radius: 5px;
-  border-style: solid;
+  border-style: hidden;
   border-color: darkgray;
   height: 55px;
   width: 505px;
