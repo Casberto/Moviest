@@ -17,7 +17,7 @@ exports.getOneMovie = async (req, res) => {
 };
 
 exports.createMovie = async (req, res) => {
-  const { name, description, director, actor, rate, year, month, genre } =
+  const { name, description, director, actor, rate, genre, launch, poster } =
     req.body;
   const movie = await MovieModel.create({
     name,
@@ -25,19 +25,20 @@ exports.createMovie = async (req, res) => {
     director,
     actor,
     rate,
-    year,
-    month,
     genre,
+    launch,
+    poster,
   });
 
   // return res.status(201).json(movie);
-  console.log("fudeu");
+  console.log("Filme cadastrado com sucesso");
   return res.render("success");
 };
 
 exports.updateMovie = async (req, res) => {
   const { index } = req.params;
-  const { name, description, director, actor, rate, year, month } = req.body;
+  const { name, description, director, actor, rate, genre, launch, poster } =
+    req.body;
   const movie = await MovieModel.findByPk(index);
 
   movie.name = name;
@@ -45,8 +46,11 @@ exports.updateMovie = async (req, res) => {
   movie.director = director;
   movie.actor = actor;
   movie.rate = rate;
-  movie.year = year;
-  movie.month = month;
+  movie.genre = genre;
+  movie.launch = launch;
+  movie.poster = poster;
+
+  console.log("Filme alterado com sucesso");
 
   await movie.save();
   return res.status(200).json(movie);

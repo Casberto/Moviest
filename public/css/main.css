@@ -9,6 +9,7 @@ body {
 
 .poster {
   width: 100px;
+  height: 140px;
 }
 
 form {
@@ -38,28 +39,37 @@ form label {
   border-radius: 5px;
   border-style: solid;
   border-color: darkgray;
-  height: 750px;
-  width: 500px;
+  height: 763px;
+  width: 505px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .titulo {
   border-radius: 5px;
   border-style: solid;
   border-color: darkgray;
-  height: 70px;
-  width: 500px;
+  height: 55px;
+  width: 505px;
   margin: auto;
   text-align: center;
   color: #ffffff;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.btnPadrao{
+  height: 55px;
+  width: 505px;
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
 }
 
 .enviar {
   margin: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 2px;
 }
 
 .mainNav{

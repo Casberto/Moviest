@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const connection = require('../connection/connection');
+const connection = require("../connection/connection");
 
 const user = connection.define("users", {
   id: {
@@ -19,11 +19,11 @@ const user = connection.define("users", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  isAdmin:{
+  isAdmin: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false,
-  }
+  },
 });
 
 module.exports = user;

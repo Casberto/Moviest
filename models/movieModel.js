@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
-const connection = require('../connection/connection');
-
+const connection = require("../connection/connection");
 
 const movie = connection.define("movies", {
   id: {
@@ -8,16 +7,13 @@ const movie = connection.define("movies", {
     autoIncrement: true,
     primaryKey: true,
   },
-  poster:{
-    type: DataTypes.STRING
-  },
 
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-   
-  description: { 
+
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -26,24 +22,27 @@ const movie = connection.define("movies", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-
+  actor: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  rate: {
+    type: DataTypes.DOUBLE,
+    allowNull: false,
+  },
   genre: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  actor:{
+  launch: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+
+  poster: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  launch:{
-    type: DataTypes.DATE,
-  },
-  rate:{
-    type: DataTypes.DOUBLE,
-    allowNull: false,
-  }
 });
-
-
 
 module.exports = movie;

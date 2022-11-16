@@ -6,7 +6,7 @@
 <div class="cadastro">
   <form action="/movie/registerMovie" method="post">
     <div class="form-group">
-      <input name="_method" type="hidden" value="put">
+      <input name="_method" type="hidden" value="put" />
       <label for="titulo">Titulo</label>
       <input
         type="text"
@@ -15,6 +15,7 @@
         name="name"
         aria-describedby="emailHelp"
         placeholder="Vingador: Ultima..."
+        required
       />
     </div>
     <div class="form-group">
@@ -26,6 +27,7 @@
         name="description"
         aria-describedby="emailHelp"
         placeholder=""
+        required
       />
     </div>
     <div class="form-group">
@@ -37,6 +39,7 @@
         name="director"
         aria-describedby="emailHelp"
         placeholder="Diretor..."
+        required
       />
     </div>
     <div class="form-group">
@@ -48,42 +51,33 @@
         name="actor"
         aria-describedby="emailHelp"
         placeholder="Johnny Depp..."
+        required
       />
     </div>
     <div class="form-group">
       <label for="rate">Avaliação</label>
       <input
-        type="text"
+        type="number"
         class="form-control"
         id="rate"
         name="rate"
+        min="0"
+        max="10"
         aria-describedby="emailHelp"
         placeholder="10"
+        required
       />
     </div>
     <div class="form-group">
       <label for="rate">Genero</label>
-      <input
-        type="text"
-        class="form-control"
-        id="genre"
-        name="genre"
-        aria-describedby="emailHelp"
-        placeholder="Ação"
-      />
+      <select name="genre" class="form-control" required>
+        <option value="Ação">Ação</option>
+        <option value="Terror">Terror</option>
+        <option value="Suspense">Suspense</option>
+        <option value="Aventura">Aventura</option>
+        <option value="Drama">Drama</option>
+      </select>
     </div>
-    <div class="form-group">
-      <label for="launch">Lançamento</label>
-      <input
-        type="date"
-        class="form-control"
-        id="launch"
-        id="launch"
-        aria-describedby="emailHelp"
-        placeholder=""
-      />
-    </div>
-
     <div class="form-group">
       <label for="poster">Link do Poster</label>
       <input
@@ -91,13 +85,34 @@
         class="form-control"
         id="poster"
         name="poster"
-        aria-describedby="emailHelp"
+        aria-describedby="poster"
         placeholder="https://linkdoposter/poster.png"
+        required
       />
     </div>
 
-  
-    <button type="submit" class="btn btn-primary enviar" id="send" value="Enviar">Enviar</button>
+    <div class="form-group">
+      <label for="launch">Lançamento</label>
+      <input
+        type="date"
+        class="form-control"
+        id="launch"
+        name="launch"
+        aria-describedby="emailHelp"
+        placeholder=""
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary enviar"
+      id="send"
+      value="Enviar"
+    >
+      Enviar
+    </button>
+    <a href="/" class="btn btn-warning enviar">Voltar</a>
   </form>
 </div>
 
