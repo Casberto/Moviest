@@ -60,5 +60,6 @@ exports.deleteMovie = async (req, res) => {
   const { index } = req.params;
   const movie = await MovieModel.findByPk(index);
   await movie.destroy();
-  return res.status(204).json();
+  console.log("filme excluido");
+  return res.render("success");
 };

@@ -8,10 +8,23 @@ body {
 }
 
 .poster {
-  width: 100px;
-  height: 140px;
+  width: 200px;
+  height: 260px;
 }
 
+.nomeFilme{
+  font-size: 95px;
+  margin: auto;
+}
+
+.modalPoster{
+  width: 200px;
+  height: 240px;
+  padding-left: auto;
+}
+.center{
+  margin:auto;
+}
 form {
   font-family: Verdana, Tahoma, sans-serif;
   font-size: 15px;

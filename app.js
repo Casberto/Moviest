@@ -23,7 +23,7 @@ const { createMovie } = require("./controllers/movieController");
 
 app.use("/movie", movieRouter);
 app.use("/", viewRoute);
-
+app.use("/delete", movieRouter);
 
 
 module.exports = app;
