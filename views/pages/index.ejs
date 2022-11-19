@@ -4,106 +4,64 @@
   <table class="table table-striped table-dark">
     <thead>
       <tr>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col">Poster</th>
+        <th scope="col">Title</th>
+        <th scope="col">Sinopse</th>
+        <th scope="col">Director</th>
+        <th scope="col">Actors</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Launch</th>
       </tr>
     </thead>
     <tbody>
       <!-- comando para puxar do banco as informações -->
-      <% movies.forEach(({dataValues: {poster, director, genre, launch, name,
-      actor, description, rate}}) => { %>
+      <script>
+        let target = "";
+        function changeTarget(_target) {
+          target = _target;
+        }
+      </script>
+
+      <% movies.forEach(({dataValues: {id, poster, director, genre, launch,
+      name, actor, description, rate}}) => { %>
       <tr>
-        <!-- botão que transforma poster em modal -->
+        <td><img src="<%= poster %>" class="poster" /></td>
+        <!-- titulo -->
+        <td><%= name %></td>
+        <td class="desc"><%= description %></td>
+        <td><%= director %></td>
+        <td><%= actor %></td>
+        <td><%= rate %></td>
+        <td><%= genre %></td>
+        <td><%= launch.toISOString().substring(0, 10)%></td>
         <td>
           <button
             type="button"
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-warning"
+            type="submit"
             data-toggle="modal"
-            data-target="#modalPoster"
-          >
-            <!-- puxa o poster do banco -->
-            <img src="<%= poster %>" class="poster" />
+            data-target="#modalUpdate"
+            onclick="changeTarget('<%= id %>')"
+           >
+            Update
           </button>
+          <%- include("../partials/_modalUpdate") %>
         </td>
-        <!-- modal -->
-        <div
-          class="modal fade"
-          id="modalPoster"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="modalPosterLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header table-striped table-dark">
-                <h5 class="modal-title table-dark" id="modalPosterLabel">
-                  Visualizar Filme
-                </h5>
-              </div>
-              <!-- modal body -->
-              <div class="modal-body table-striped table-dark">
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-dark">
-                    <%= name %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    <img src="<%= poster %>" class="modalPoster" />
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Sinopse: <%= description %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Diretor: <%= director %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Atores: <%= actor %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Gênero: <%= genre %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Nota: <%= rate %>
-                  </li>
-                  <li class="list-group-item list-group-item-dark">
-                    Lançamento: <%= launch %>
-                  </li>
-                </ul>
-              </div>
-              <!-- modal footer -->
-              <div class="modal-footer table-dark">
-                <div class="center">
-                  <button
-                    type="button"
-                    class="btn btn-outline-light"
-                    data-dismiss="modal"
-                    aria-label="Fechar"
-                  >
-                    Fechar
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-warning"
-                    type="submit"
-                  >
-                    Alterar
-                  </button>
-
-                  <button
-                    type="submit"
-                    class="btn btn-outline-danger"
-                    id="destroy"
-                    value="Deletar"
-                  >
-                    Deletar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- titulo -->
-        <td class="nomeFilme"><%= name %></td>
+        <td>
+          <button
+            type="submit"
+            class="btn btn-outline-danger"
+            id="destroy"
+            value="Deletar"
+            data-toggle="modal"
+            data-target="#modalDelete"
+            onclick="changeTarget('<%= id %>')"
+          >
+            Delete
+          </button>
+          <%- include("../partials/_modalDelete") %>
+        </td>
       </tr>
       <% }) %>
     </tbody>

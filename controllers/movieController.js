@@ -1,4 +1,3 @@
-const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
 const MovieModel = require("../models/movieModel");
 
 exports.getAllMovie = async (req, res) => {
@@ -59,6 +58,7 @@ exports.updateMovie = async (req, res) => {
 exports.deleteMovie = async (req, res) => {
   const { index } = req.params;
   const movie = await MovieModel.findByPk(index);
+  if(!movie) res.status(404).json({status: "fail", message: "Achei nada"})
   await movie.destroy();
   console.log("filme excluido");
   return res.render("success");
