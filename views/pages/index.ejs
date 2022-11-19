@@ -17,9 +17,21 @@
     <tbody>
       <!-- comando para puxar do banco as informações -->
       <script>
-        let target = "";
+        let selectedId = "";
         function changeTarget(_target) {
-          target = _target;
+          selectedId = _target;
+        }
+
+        const showModal = new Event("showModal");
+        function activateModal(_target) {
+          selectedId = _target;
+          const modalUpdate = document.querySelector("#modalUpdate");
+
+          modalUpdate.dispatchEvent(showModal);
+        }
+
+        function changeTarget(_target) {
+          selectedId = _target;
         }
       </script>
 
@@ -42,8 +54,8 @@
             type="submit"
             data-toggle="modal"
             data-target="#modalUpdate"
-            onclick="changeTarget('<%= id %>')"
-           >
+            onclick="activateModal('<%= id %>')"
+          >
             <i class="material-icons">edit</i>
           </button>
           <%- include("../partials/_modalUpdate") %>

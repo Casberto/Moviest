@@ -21,9 +21,9 @@
       </div>
       <script>
         function deleteMovie() {
-          console.log(target);
           try {
-            axios.delete(`/movie/${target}`);
+            axios.delete(`/movie/${selectedId}`);
+            location.assign("/");
           } catch (err) {
             console.log(err);
           }

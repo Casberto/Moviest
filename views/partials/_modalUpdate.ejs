@@ -19,16 +19,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <script>
-        function updateMovie() {
-          console.log(target);
-          try {
-            axios.delete(`/movie/${target}`);
-          } catch (err) {
-            console.log(err);
-          }
-        }
-      </script>
       <div class="modal-body table-striped table-dark">
         <form action="/movie/registerMovie" method="post" class="cadastro">
           <div class="form-group">
@@ -52,7 +42,6 @@
               id="description"
               name="description"
               aria-describedby="emailHelp"
-              
               required
             />
           </div>
@@ -64,7 +53,6 @@
               id="director"
               name="director"
               aria-describedby="emailHelp"
-              
               required
             />
           </div>
@@ -89,7 +77,6 @@
               min="0"
               max="10"
               aria-describedby="emailHelp"
-              
               required
             />
           </div>
@@ -131,11 +118,46 @@
         </form>
       </div>
       <div class="modal-footer table-striped table-dark">
-        <button type="button" class="btn btn-outline-light" data-dismiss="modal">
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          data-dismiss="modal"
+        >
           Cancel
         </button>
-        <button onclick="updateMovie()" class="btn btn-outline-light">Update</button>
+        <button onclick="updateMovie()" class="btn btn-outline-light">
+          Update
+        </button>
       </div>
     </div>
   </div>
+  <script defer>
+    function printar() {
+      console.log("deu certo");
+    }
+    const handleLoad = async (e) => {
+      // 1) Obter dados
+      retorno = await axios.get(`/movie/${selectedId}`);
+      // 2) Listar os dados nos campos
+      console.log(retorno);
+      return retorno;
+    };
+
+    let retorno;
+    const modal = document.querySelector("#modalUpdate");
+    modal.addEventListener("showModal", handleLoad);
+
+    function updateMovie() {
+      // 3) Obter dados novamente, e enviá-los
+
+      // 4) Mostrar mensagem de confirmação ou de erro
+      // 4.1) Recarregar
+      console.log(target);
+      try {
+        axios.put(`/movie/${target}`);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  </script>
 </div>
