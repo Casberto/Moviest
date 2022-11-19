@@ -1,0 +1,142 @@
+<div
+  class="modal fade"
+  id="modalUpdate"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <script>
+        function updateMovie() {
+          console.log(target);
+          try {
+            axios.delete(`/movie/${target}`);
+          } catch (err) {
+            console.log(err);
+          }
+        }
+      </script>
+      <div class="modal-body">
+        <form action="/movie/registerMovie" method="post" class="cadastro">
+          <h2 class="titulo">MOVIE MOVIEST</h2>
+          <div class="form-group">
+            <input name="_method" type="hidden" value="put" />
+            <label for="titulo">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              aria-describedby="emailHelp"
+              placeholder="Vingador: Ultima..."
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="sinopse">Sinopse</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              aria-describedby="emailHelp"
+              
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="director">Director</label>
+            <input
+              type="text"
+              class="form-control"
+              id="director"
+              name="director"
+              aria-describedby="emailHelp"
+              
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="actor">Actor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="actor"
+              name="actor"
+              aria-describedby="emailHelp"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="rate">Rate</label>
+            <input
+              type="number"
+              class="form-control"
+              id="rate"
+              name="rate"
+              min="0"
+              max="10"
+              aria-describedby="emailHelp"
+              
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="rate">Genre</label>
+            <select name="genre" class="form-control" required>
+              <option value="Action">Action</option>
+              <option value="Horror">Horror</option>
+              <option value="Suspense">Suspense</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Drama">Drama</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="poster">Poster Link</label>
+            <input
+              type="text"
+              class="form-control"
+              id="poster"
+              name="poster"
+              aria-describedby="poster"
+              placeholder="https://linkdoposter/poster.png"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="launch">Launch</label>
+            <input
+              type="date"
+              class="form-control"
+              id="launch"
+              name="launch"
+              aria-describedby="emailHelp"
+              placeholder=""
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Cancel
+        </button>
+        <button onclick="updateMovie()" class="btn btn-danger">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
