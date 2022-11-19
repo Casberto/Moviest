@@ -8,8 +8,8 @@
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+      <div class="modal-header table-striped table-dark">
+        <h5 class="modal-title" id="exampleModalLabel">Update Movie</h5>
         <button
           type="button"
           class="close"
@@ -29,9 +29,8 @@
           }
         }
       </script>
-      <div class="modal-body">
+      <div class="modal-body table-striped table-dark">
         <form action="/movie/registerMovie" method="post" class="cadastro">
-          <h2 class="titulo">MOVIE MOVIEST</h2>
           <div class="form-group">
             <input name="_method" type="hidden" value="put" />
             <label for="titulo">Title</label>
@@ -131,11 +130,11 @@
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-dismiss="modal">
+      <div class="modal-footer table-striped table-dark">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">
           Cancel
         </button>
-        <button onclick="updateMovie()" class="btn btn-danger">Update</button>
+        <button onclick="updateMovie()" class="btn btn-outline-light">Update</button>
       </div>
     </div>
   </div>

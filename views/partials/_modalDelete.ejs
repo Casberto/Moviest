@@ -1,6 +1,6 @@
 <div
   class="modal fade"
-  id="modalExemplo"
+  id="modalDelete"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -8,8 +8,8 @@
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+      <div class="modal-header table-striped table-dark">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Movie</h5>
         <button
           type="button"
           class="close"
@@ -21,7 +21,7 @@
       </div>
       <script>
         function deleteMovie() {
-            console.log(target)
+          console.log(target);
           try {
             axios.delete(`/movie/${target}`);
           } catch (err) {
@@ -29,14 +29,14 @@
           }
         }
       </script>
-      <div class="modal-body">
-        <h1>Delete</h1>
+      <div class="modal-body table-striped table-dark">
+        Do you really want to delete the movie?
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-dismiss="modal">
+      <div class="modal-footer table-striped table-dark">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">
           Cancel
         </button>
-        <button onclick="deleteMovie()" class="btn btn-danger">Delete</a>
+        <button onclick="deleteMovie()" class="btn btn-outline-light">Delete</button>
       </div>
     </div>
   </div>

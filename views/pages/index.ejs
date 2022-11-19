@@ -38,27 +38,27 @@
         <td>
           <button
             type="button"
-            class="btn btn-outline-warning"
+            class="btn btn-outline-light"
             type="submit"
             data-toggle="modal"
             data-target="#modalUpdate"
             onclick="changeTarget('<%= id %>')"
            >
-            Update
+            <i class="material-icons">edit</i>
           </button>
           <%- include("../partials/_modalUpdate") %>
         </td>
         <td>
           <button
             type="submit"
-            class="btn btn-outline-danger"
+            class="btn btn-outline-light"
             id="destroy"
             value="Deletar"
             data-toggle="modal"
             data-target="#modalDelete"
             onclick="changeTarget('<%= id %>')"
           >
-            Delete
+            <i class="material-icons">delete</i>
           </button>
           <%- include("../partials/_modalDelete") %>
         </td>
